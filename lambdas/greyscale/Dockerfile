@@ -5,7 +5,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # copy pyproject.toml and install dependencies
 COPY pyproject.toml ${LAMBDA_TASK_ROOT}/
-RUN uv sync --frozen
+WORKDIR ${LAMBDA_TASK_ROOT}
+RUN uv pip install --system --no-cache .
 
 # copy handler
 COPY handler.py ${LAMBDA_TASK_ROOT}/
