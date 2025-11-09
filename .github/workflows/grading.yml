@@ -7,10 +7,10 @@ on:
         description: 'Your pitt id'
         type: string
         required: true
-        default: 'xzy123'
+        default: 'rrt19'
 
 env:
-  AWS_REGION: us-east-1
+  AWS_REGION: us-east-2
 
 jobs:
   check-s3-bucket:
