@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-east-1  # update if you are in a different region
-  AWS_LAMBDA_ROLE_ARN: arn:aws:iam::523734927941:role/lambda-image-processing-role  # replace with your ARN
+  AWS_LAMBDA_ROLE_ARN: arn:aws:iam::825920381273:role/lambda-execution-role-assignment3 # replace with your ARN
 
 jobs:
   deploy-resize:
@@ -79,7 +79,7 @@ jobs:
           image-uri: ${{ steps.resize-build-image.outputs.image }}  # ECR image URI from previous step
           role: ${{ env.AWS_LAMBDA_ROLE_ARN }}
           publish: true
-
+  
   deploy-greyscale:
     name: Deploy Greyscale Lambda
     runs-on: ubuntu-latest
